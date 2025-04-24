@@ -5,8 +5,17 @@ import { BenefitsGrid } from "@/components/dashboard/BenefitsGrid";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
-// Dados mockados para exemplo - removed 'as const' to make it mutable
-const mockBenefits = [
+// Define the Benefit type to match the one in BenefitsGrid
+interface Benefit {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  status: "active" | "available" | "pending";
+}
+
+// Dados mockados para exemplo
+const mockBenefits: Benefit[] = [
   {
     id: "1",
     title: "Vale Refeição",
