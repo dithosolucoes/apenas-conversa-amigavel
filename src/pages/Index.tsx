@@ -5,7 +5,7 @@ import { BenefitsGrid } from "@/components/dashboard/BenefitsGrid";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
-// Dados mockados para exemplo
+// Dados mockados para exemplo - removed 'as const' to make it mutable
 const mockBenefits = [
   {
     id: "1",
@@ -28,7 +28,7 @@ const mockBenefits = [
     category: "Transporte",
     status: "active",
   },
-] as const;
+];
 
 export default function Index() {
   const navigate = useNavigate();
