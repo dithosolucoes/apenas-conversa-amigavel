@@ -1,5 +1,5 @@
 
-import { Bell, Home, User, CreditCard, FileText, Star } from "lucide-react";
+import { Bell, FileText, Home, Star, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,8 +16,8 @@ const menuItems = [
   { title: "Dashboard", icon: Home, url: "/inicio" },
   { title: "Benefícios", icon: Star, url: "/beneficios" },
   { title: "Extrato", icon: FileText, url: "/extrato" },
-  { title: "Perfil", icon: User, url: "/perfil" },
   { title: "Notificações", icon: Bell, url: "/notificacoes" },
+  { title: "Perfil", icon: User, url: "/perfil" },
 ];
 
 export function DashboardSidebar() {

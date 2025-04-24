@@ -11,6 +11,9 @@ import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import Onboarding from "./pages/auth/Onboarding";
 import Profile from "./pages/Profile";
+import Benefits from "./pages/Benefits";
+import History from "./pages/History";
+import Notifications from "./pages/Notifications";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,9 @@ const App = () => (
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/inicio" element={<Index />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/beneficios" element={<Benefits />} />
+          <Route path="/extrato" element={<History />} />
+          <Route path="/notificacoes" element={<Notifications />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
