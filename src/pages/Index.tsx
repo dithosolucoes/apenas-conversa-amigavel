@@ -1,14 +1,77 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import { BenefitCard } from "@/components/dashboard/BenefitCard";
+import { BenefitsGrid } from "@/components/dashboard/BenefitsGrid";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+
+// Dados mockados para exemplo
+const mockBenefits = [
+  {
+    id: "1",
+    title: "Vale Refeição",
+    description: "Benefício para alimentação durante o expediente",
+    category: "Alimentação",
+    status: "active",
+  },
+  {
+    id: "2",
+    title: "Plano de Saúde",
+    description: "Cobertura médica completa",
+    category: "Saúde",
+    status: "available",
+  },
+  {
+    id: "3",
+    title: "Vale Transporte",
+    description: "Auxílio para deslocamento",
+    category: "Transporte",
+    status: "active",
+  },
+] as const;
+
+export default function Index() {
+  const navigate = useNavigate();
+
+  const handleBenefitSelect = (id: string) => {
+    navigate(`/beneficios/${id}`);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+    <DashboardLayout>
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight font-montserrat text-zargo-dark">
+            Bem-vindo de volta!
+          </h2>
+          <p className="text-muted-foreground font-inter">
+            Aqui está um resumo dos seus benefícios
+          </p>
+        </div>
 
-export default Index;
+        <div className="grid gap-4 md:grid-cols-3">
+          <BenefitCard
+            title="Saldo Vale Refeição"
+            value="R$ 850,00"
+            description="Disponível para uso"
+          />
+          <BenefitCard
+            title="Saldo Vale Alimentação"
+            value="R$ 650,00"
+            description="Disponível para uso"
+          />
+          <BenefitCard
+            title="Benefícios Ativos"
+            value="4"
+            description="Total de benefícios em uso"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-4 font-montserrat">Seus Benefícios</h3>
+          <BenefitsGrid benefits={mockBenefits} onSelect={handleBenefitSelect} />
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+}
